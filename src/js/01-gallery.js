@@ -11,7 +11,7 @@ const gallery = document.querySelector('.gallery')
 function createLiItem(fotos) {
      return fotos
         .map(
-        (foto) =>`<li class="gallery__item">
+        (foto) => `<li class="gallery__item">
    <a class="gallery__link" href="${foto.original}">
       <img class="gallery__image" src="${foto.preview}" title="${foto.description}" alt="${foto.description}" />
    </a>

@@ -1,13 +1,15 @@
 import throttle from 'lodash.throttle'
 const KEY = "feedback-form-state"
 const formEl= document.querySelector('.feedback-form')
-formEl.addEventListener('input', throttle(onInput,500))
-formEl.addEventListener('submit',onSubmitForm)
 
 function onInput(e) {
     const obj = {
-        email:e.currentTarget.elements.email.value,
-        message:e.currentTarget.elements.message.value
+      email:formEl.elements.email.value,
+       message:formEl.elements.message.value
+    
+
+        //email:e.currentTarget.elements.email.value,
+        //message:e.currentTarget.elements.message.value
     }
     const newObj = JSON.stringify(obj)
 localStorage.setItem(KEY,newObj)
@@ -33,3 +35,6 @@ function onSubmitForm(e) {
     e.target.reset()
     localStorage.removeItem(KEY)
 }
+
+formEl.addEventListener('input', throttle(onInput,500))
+formEl.addEventListener('submit',onSubmitForm)
